@@ -1,5 +1,5 @@
 # Jabr
-Encoder/Decoder Rus/(Eng)
+Encoder/Decoder Rus/(English text supported but UI does not have a translation)
 
 This is a relatively small program that i have been working on for not a very long time.
 
