@@ -16,7 +16,7 @@ The program was made for fun and educational purposes, it is not meant to hurt a
 New features will be added as time passes
 
 Fell free to ask questions, and use the algorithm/program/code, 
-Just please add a dedication/credit to my original word :D
+Just please add a dedication/credit to my original work :D
 
 --- Current versions ---
 v1.0 - semibugged
