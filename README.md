@@ -3,11 +3,11 @@ Encoder/Decoder Rus/(English text supported but UI does not have a translation)
 
 This is a relatively small program that i have been working on for not a very long time.
 
-It is supposed to encrypt or decrypt messages with any ascii caracters eccept for the "ENTER" key.
+It is supposed to encrypt or decrypt messages with any ASCII caracters except for the "ENTER" key.
 The encryption and decryption process happen via my own algorithm called RE for short
 
 The algorithm uses an open key, and a set alphabet which must follow these rules:
- - must include all the ascii characters from the message including dots, spaces etc.
+ - must include all the ASCII characters from the message including dots, spaces etc.
  - every symbol must only be used once in the alphabet
  - it may also contain other ascii characters, if the user wants so (also used only once)
  - the open key must be a natural number between 0 and the chosen alphabet length
