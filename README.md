@@ -71,7 +71,7 @@ Expected features:
 
 
 
-                          Future plans:
+.                          Future plans:
 
 -     Clean the UI
 -     Add the option of randomly generating cipher parameters
