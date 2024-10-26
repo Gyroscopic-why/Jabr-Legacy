@@ -73,13 +73,15 @@ Expected features:
 
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-= Future plans: =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-- Clean the UI
-- Add the option of randomly generating cipher parameters
-- Add multiple encoding/decoding at the same time
-- Integrate other ciphers in the program
-- Add optional parameter bruteforcing using a bit of known information
-- Add additional security to the main cipher
-- Add graphical interface (?)
-- Enable advanced settings menu
-- Make settings persistent through every launch (until user changes them)
-- Enable creating of encoded/decoded .txt files
+-     Clean the UI
+-     Add the option of randomly generating cipher parameters
+-     Add multiple encoding/decoding at the same time
+-     Integrate other ciphers in the program
+-     Add optional parameter bruteforcing using a bit of known information
+-     Add additional security to the main cipher
+-     Add graphical interface (?)
+-     Enable advanced settings menu
+-     Make settings persistent through every launch (until user changes them)
+-     Enable creating of encoded/decoded .txt files
+  
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
