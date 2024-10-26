@@ -71,7 +71,7 @@ Expected features:
 
 
 
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= Future plans: =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                          Future plans:
 
 -     Clean the UI
 -     Add the option of randomly generating cipher parameters
@@ -83,5 +83,3 @@ Expected features:
 -     Enable advanced settings menu
 -     Make settings persistent through every launch (until user changes them)
 -     Enable creating of encoded/decoded .txt files
-  
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
