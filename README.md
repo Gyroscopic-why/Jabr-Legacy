@@ -54,21 +54,23 @@ v1.3_Opti - optimised version, a bit of removed dev info, works faster than othe
 
 
 ============================ Gen 1.4 =============================
-*Work in progress,                                               |
-      est. finish date - 30 nov 2024                             |
-                                                                 |
-Expected features:                                               |
-  - More intuitive UI                                            |
-  - Randomly generating codes                                    |
-  - Fast encoding/decoding options                               |
-(?) Advanced settings menu                                       |
-(?) Other ciphers to chose from                                  |
-(?) First bruteforcing prototypes                                |
+*Work in progress,
+      est. finish date - 30 nov 2024
+
+Expected features:
+  - More intuitive UI
+  - Randomly generating codes
+  - Fast encoding/decoding options
+(?) Advanced settings menu
+(?) Other ciphers to chose from
+(?) First bruteforcing prototypes
 ==================================================================
 
 
 
+
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-= Future plans: =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
 - Clean the UI
 - Add the option of randomly generating cipher parameters
 - Add multiple encoding/decoding at the same time
