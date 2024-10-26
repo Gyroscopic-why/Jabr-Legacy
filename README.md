@@ -7,10 +7,10 @@ It is supposed to encrypt or decrypt messages with any ASCII caracters except fo
 The encryption and decryption process happen via my own algorithm called RE for short
 
 The algorithm uses an open key, and a set alphabet which must follow these rules:
- - Must include all the ASCII characters from the message including dots, spaces etc.
- - Every symbol must only be used once in the alphabet
- - It may also contain other ascii characters, if the user wants so (also used only once)
- - The open key must be a natural number between 0 and the chosen alphabet length
+ -     Must include all the ASCII characters from the message including dots, spaces etc.
+ -     Every symbol must only be used once in the alphabet
+ -     It may also contain other ascii characters, if the user wants so (also used only once)
+ -     The open key must be a natural number between 0 and the chosen alphabet length
 
 The program was made for fun and educational purposes, it is not meant to hurt anyone
 New features will be added as time passes
