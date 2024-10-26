@@ -1,5 +1,5 @@
 # Jabr
-Encoder/Decoder Rus/(English text supported but UI does not have a translation)
+Encoder/Decoder Rus/(English text supported but the UI does not have a translation)
 
 This is a relatively small program that i have been working on for not a very long time.
 
@@ -18,37 +18,44 @@ New features will be added as time passes
 Fell free to ask questions, and use the algorithm/program/code, 
 Just please add a dedication/credit to my original work :D
 
+
+
+
 ------------------------------------- Current versions ---------------------------------------
-=== First prototypes ===================
-v1.0 - semibugged
-v1.1 - semibugged
 
-======= Gen 1.2 ========================
-v1.2 alpha - unfinished UI, but works fine
-v1.2 beta - New UI, has dev info, works fine
-v1.21 - Improved UI, has dev info, works fine
+======================== First prototypes =========================
+v1.0 - bugged                                                     |
+v1.1 - semibugged                                                 |
+===================================================================
 
-======= Gen 1.3 ========================
-v1.3 beta - works fine, has dev info
-v1.3C - more clean code version, has dev info, works the same as v1.3 beta
-v1.3_Opti - optimised version, a bit of removed dev info, works faster than other 1.3 versions
+============================ Gen 1.2 ==============================
+v1.2 alpha - unfinished UI, but works fine                        |
+v1.2 beta - New UI, has dev info, works fine                      |
+v1.21 - Improved UI, has dev info, works fine, minor bug fixes    |
+===================================================================
 
-======= Gen 1.4 ========================
-*Work in progress,
-      est. finish date - 30 nov 2024
+============================ Gen 1.3 ===========================================================
+v1.3 beta - works fine, has dev info                                                           |
+v1.3C - more clean code version, has dev info, works the same as v1.3 beta                     |
+v1.3_Opti - optimised version, a bit of removed dev info, works faster than other 1.3 versions |
+================================================================================================
 
-Expected features:
-  - More intuitive UI
-  - Randomly generating codes
-  - Fast encoding/decoding options
-(?) Advanced settings menu
-(?) Other ciphers to chose from
-(?) First bruteforcing prototypes
-========================================
+============================ Gen 1.4 =============================
+*Work in progress,                                               |
+      est. finish date - 30 nov 2024                             |
+                                                                 |
+Expected features:                                               |
+  - More intuitive UI                                            |
+  - Randomly generating codes                                    |
+  - Fast encoding/decoding options                               |
+(?) Advanced settings menu                                       |
+(?) Other ciphers to chose from                                  |
+(?) First bruteforcing prototypes                                |
+==================================================================
 
--------------------------------------------------------------
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-Future plans:
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-= Future plans: =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 - Clean the UI
 - Add the option of randomly generating cipher parameters
 - Add multiple encoding/decoding at the same time
