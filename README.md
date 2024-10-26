@@ -62,9 +62,9 @@ Expected features:
 -     More intuitive UI
 -     Randomly generating codes
 -     Fast encoding/decoding options
-- (?) Advanced settings menu
-- (?) Other ciphers to chose from
-- (?) First bruteforcing prototypes
+-     Advanced settings menu (?)
+-     Other ciphers to chose from (?)
+-     First bruteforcing prototypes (?)
 
 ==================================================================
 
