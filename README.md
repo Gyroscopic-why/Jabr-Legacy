@@ -59,11 +59,11 @@ v1.3_Opti - optimised version, a bit of removed dev info, works faster than othe
       est. finish date - 30 nov 2024
 
 Expected features:
-    - More intuitive UI
-    - Randomly generating codes
-    - Fast encoding/decoding options
-(?) - Advanced settings menu
-(?) - Other ciphers to chose from
+-     More intuitive UI
+-     Randomly generating codes
+-     Fast encoding/decoding options
+- (?) Advanced settings menu
+- (?) Other ciphers to chose from
 - (?) First bruteforcing prototypes
 
 ==================================================================
