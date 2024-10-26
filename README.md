@@ -24,11 +24,13 @@ Just please add a dedication/credit to my original work :D
 ------------------------------------- Current versions ---------------------------------------
 
 -======================= First prototypes ========================
+
 v1.0 - bugged
 v1.1 - semibugged
 -=================================================================
 
 -=========================== Gen 1.2 =============================
+
 v1.2 alpha - unfinished UI, but works fine
 v1.2 beta - New UI, has dev info, works fine
 v1.21 - Improved UI, has dev info, works fine, minor bug fixes
