@@ -42,18 +42,19 @@ v1.21 - Improved UI, has dev info, works fine, minor bug fixes
 
 -=================================================================
 
--=========================== Gen 1.3 ===========================================================
+-=========================== Gen 1.3 ======================================================
 
 v1.3 beta - works fine, has dev info
 
 v1.3C - more clean code version, has dev info, works the same as v1.3 beta
 
-v1.3_Opti - optimised version, a bit of removed dev info, works faster than other 1.3 versions
+v1.3_Opti - optimised version, a bit of removed dev info, works faster than other Gen_1.3 
 
--===============================================================================================
+-==========================================================================================
 
 
 ============================ Gen 1.4 =============================
+
 *Work in progress,
       est. finish date - 30 nov 2024
 
@@ -64,6 +65,7 @@ Expected features:
 (?) Advanced settings menu
 (?) Other ciphers to chose from
 (?) First bruteforcing prototypes
+
 ==================================================================
 
 
