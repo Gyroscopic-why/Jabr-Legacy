@@ -23,23 +23,28 @@ Just please add a dedication/credit to my original work :D
 
 ------------------------------------- Current versions ---------------------------------------
 
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= First prototypes =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-======================= First prototypes ========================
+
 v1.0 - bugged
 v1.1 - semibugged
--================================================================-
+-=================================================================
+
 
 -=========================== Gen 1.2 =============================
 
 v1.2 alpha - unfinished UI, but works fine
 v1.2 beta - New UI, has dev info, works fine
 v1.21 - Improved UI, has dev info, works fine, minor bug fixes
+
 -=================================================================
 
 -=========================== Gen 1.3 ===========================================================
+
 v1.3 beta - works fine, has dev info
 v1.3C - more clean code version, has dev info, works the same as v1.3 beta
 v1.3_Opti - optimised version, a bit of removed dev info, works faster than other 1.3 versions
 -===============================================================================================
+
 
 ============================ Gen 1.4 =============================
 *Work in progress,                                               |
