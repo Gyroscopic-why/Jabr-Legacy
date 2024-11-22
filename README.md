@@ -42,6 +42,7 @@ v1.21 - Improved UI, has dev info, works fine, minor bug fixes
 
 -=================================================================
 
+
 -=========================== Gen 1.3 ======================================================
 
 v1.3 beta - works fine, has dev info
@@ -53,19 +54,35 @@ v1.3_Opti - optimised version, a bit of removed dev info, works faster than othe
 -==========================================================================================
 
 
-============================ Gen 1.4 =============================
+============================ Gen 1.4 ======================================================
 
+v1.4 New features:
+    - New cipher version with improved security (RE 1.4)
+    - Ability to change ciphers (RE 1.0,  RE 1.3,  and  RE 1.4)  //although not recomended to use lower than 1.4
+    - Switchable settings
+    - Improved UI
+    - Fixed advanced info about the encryption/decryption process
+    - Improved performance
+    - Fixed spelling mistakes
+===========================================================================================
+
+
+============================ Gen 1.5 =============================
 *Work in progress,
-      est. finish date - 30 nov 2024
+      est. finish date - 7 jan 2025
+==================================================================
+
 
 Expected features:
 -     More intuitive UI
 -     Randomly generating codes
 -     Fast encoding/decoding options
--     Advanced settings menu (?)
--     Other ciphers to chose from (?)
++     Settings menu
+-     Advanced settings menu
++     Other ciphers to chose from (?)
 -     First bruteforcing prototypes (?)
 
+"+" added in Gen 4
 ==================================================================
 
 
