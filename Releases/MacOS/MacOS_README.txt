@@ -2,4 +2,4 @@ NO
 
 literally no, support for Mac is not currently available
 
-who should you even be to afford a mac?
+why do you even want a mac to begin with?
