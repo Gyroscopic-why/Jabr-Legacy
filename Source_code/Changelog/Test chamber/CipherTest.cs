@@ -1,17 +1,14 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Security.Cryptography;
-using System.Text;
 using static System.Console;
 
 namespace CipherTest
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Title = "CipherTest chamber - v1.4";
+            Title = "CipherTest chamber - v1.4.1";
 
             Write("\n\n\n\t\t\t   Добро пожаловать в CipherTest!");
             short OurTask = GetUserTask();
@@ -21,13 +18,13 @@ namespace CipherTest
                 switch (OurTask)
                 {
                     case 2:
-                        SimpleEnInfo();
-                        Encode();
+                        GetInfo(0); //0 = encoding   1 = decoding
+                        Encode(gVersion, gAdvInfo);
                         break;
 
                     case 3:
-                        SimpleDeInfo();
-                        Decode();
+                        GetInfo(1); //0 = encoding   1 = decoding
+                        Decode(gVersion, gAdvInfo);
                         break; 
 
                     case 4:
@@ -44,12 +41,12 @@ namespace CipherTest
 
         static public Random gRandom = new Random();
         static public string gEncoded, gDecoded, gAlphabet;
-        static public int gShift;
-        static public bool gAdvInfo = false, gClearUsed = false;
-        static public byte gVersion = 3;//1=J10 //2=J13 //3=J14
+        static public int  gShift;
+        static public bool gSimplified = true, gAdvInfo = true, gClearUsed = false;
+        static public byte gVersion = 4; //  1=RE10    3=RE13    4=RE14    5=RE15
 
 
-        static public string En_J10(string Decoded, string Alphabet, int Shift)
+        static public string En_RE10(string Decoded, string Alphabet, int Shift)
         {
             string Encoded = "";
 
@@ -62,8 +59,7 @@ namespace CipherTest
             }
             return Encoded;
         }
-
-        static public string De_J10(string Encoded, string Alphabet, int Shift)
+        static public string De_RE10(string Encoded, string Alphabet, int Shift)
         {
             string Decoded = "";
 
@@ -77,7 +73,7 @@ namespace CipherTest
             return Decoded;
         }
 
-        static public string En_J13(string Decoded, string Alphabet, int Shift)
+        static public string En_RE13(string Decoded, string Alphabet, int Shift)
         {
             string Encoded = "";
 
@@ -90,8 +86,7 @@ namespace CipherTest
             }
             return Encoded;
         }
-
-        static public string De_J13(string Encoded, string Alphabet, int Shift)
+        static public string De_RE13(string Encoded, string Alphabet, int Shift)
         {
             string Decoded = "";
 
@@ -105,7 +100,7 @@ namespace CipherTest
             return Decoded;
         }
 
-        static public string En_J14(string Decoded, string Alphabet, int Shift)
+        static public string En_RE14(string Decoded, string Alphabet, int Shift)
         {
             string Encoded = "";
             int[] EnID = new int[Decoded.Length];
@@ -120,8 +115,7 @@ namespace CipherTest
             }
             return Encoded;
         }
-        
-        static public string De_J14(string Encoded, string Alphabet, int Shift)
+        static public string De_RE14(string Encoded, string Alphabet, int Shift)
         {
             string Decoded = "";
             int[] DeID = new int[Encoded.Length];
@@ -140,8 +134,7 @@ namespace CipherTest
             return Decoded;
         }
 
-
-
+        //-------------------------------------------------------------------------------//
         static public short GetUserTask()
         {
             short ChosenTask = -1;
@@ -183,42 +176,62 @@ namespace CipherTest
         {
             string UserInput = "";
 
-            while (UserInput != "0") {
-                if (gClearUsed) 
+            while (UserInput != "0")
+            {
+                Write("\n\n\n");
+                if (gClearUsed)
                 {
                     Clear();
                     Write("\n\n\n\t\t\t   Добро пожаловать в CipherTest!\n\n\n");
                     Write("\t\t\t--->  Изменение настроек  <---\n\n");
                 }
-                else Write("\n\n");
 
                 Write("\t\t[?]  - Изменить версию используемого шифра:\n");
                 ForegroundColor = ConsoleColor.DarkGray;
                 if (gVersion == 1) ForegroundColor = ConsoleColor.Green;
                 Write("\t\t  > 1 <    - РЕ 1.0, Защита: 3/5\n");
                 ForegroundColor = ConsoleColor.DarkGray;
-                if (gVersion == 2) ForegroundColor = ConsoleColor.Green;
-                Write("\t\t  > 2 <    - РЕ 1.3, Защита: 3/5\n");
-                ForegroundColor = ConsoleColor.DarkGray;
                 if (gVersion == 3) ForegroundColor = ConsoleColor.Green;
-                Write("\t\t  > 3 <    - РЕ 1.4, Защита: 4/5    (По умолчанию)\n");
+                Write("\t\t  > 3 <    - РЕ 1.3, Защита: 3/5\n");
+                ForegroundColor = ConsoleColor.DarkGray;
+                if (gVersion == 4) ForegroundColor = ConsoleColor.Green;
+                Write("\t\t  > 4 <    - РЕ 1.4, Защита: 4/5    (По умолчанию)\n");
                 ForegroundColor = ConsoleColor.White;
 
-                Write("\n\t\t  > 4 <    - Выводить дополнительную информацию о процессе шифрования: ");
-                if (gAdvInfo) {
+                Write("\n\t\t  > 6 <    - Выводить дополнительную информацию о процессе шифрования: ");
+                if (gAdvInfo)
+                {
                     ForegroundColor = ConsoleColor.Green;
                     Write("Да");
-                } else { 
+                }
+                else
+                {
                     ForegroundColor = ConsoleColor.Red;
                     Write("Нет");
                 }
                 ForegroundColor = ConsoleColor.White;
 
-                Write("\n\t\t  > 5 <    - Стирать использованную информацию: ");
-                if (gClearUsed) {
+                Write("\n\t\t  > 7 <    - Стирать использованную информацию: ");
+                if (gClearUsed)
+                {
                     ForegroundColor = ConsoleColor.Green;
                     Write("Да");
-                } else { 
+                }
+                else
+                {
+                    ForegroundColor = ConsoleColor.Red;
+                    Write("Нет");
+                }
+                ForegroundColor = ConsoleColor.White;
+
+                Write("\n\t\t  > 8 <    - Упростить ввод данных: ");
+                if (gSimplified)
+                {
+                    ForegroundColor = ConsoleColor.Green;
+                    Write("Да");
+                }
+                else
+                {
                     ForegroundColor = ConsoleColor.Red;
                     Write("Нет");
                 }
@@ -233,209 +246,64 @@ namespace CipherTest
                     case "1":
                         gVersion = 1;
                         break;
-                    case "2":
-                        gVersion = 2;
-                        break;
                     case "3":
                         gVersion = 3;
                         break;
                     case "4":
+                        gVersion = 4;
+                        break;
+                    //case "5":
+                    //gVersion = 5;
+                    //break;
+                    case "6":
                         gAdvInfo = !gAdvInfo;
                         break;
-                    case "5":
+                    case "7":
                         gClearUsed = !gClearUsed;
+                        break;
+                    case "8":
+                        gSimplified = !gSimplified;
                         break;
                 }
             }
             if (gClearUsed)
             {
                 Clear();
-                Write("\n\n\n\t\t\t   Добро пожаловать в CipherTest!");
+                Write("\n\n\n\t\t\t   Добро пожаловать в Jabr!");
             }
         }
 
-        static public void SimpleEnInfo() //Getting encoding info
-        {
-            string UserInput, AlphabetErrors = "☺", AlphabetDuplicates = "☺";
-            bool SuccessfulParse = false;
-            gEncoded = "";
-
-            //--------------------------------------------------------------------------------------//
-            Write("\n\n\n\t\t\t\t--->  Encoding  <---\n\n");
-
-
-            Write("\n\t\t[->] - Требуется закодировать: ");
-            BackgroundColor = ConsoleColor.Blue;
-            gDecoded = ReadLine(); //Got the message
-            BackgroundColor = ConsoleColor.Black;
-
-            while (AlphabetDuplicates != "" || AlphabetErrors != "")
-            {
-                AlphabetDuplicates = "";
-                AlphabetErrors = "";
-                Write("\n\n\n\t\t[->] - Алфавит: ");
-                BackgroundColor = ConsoleColor.Magenta;
-                gAlphabet = ReadLine(); //Got the alphabet
-                BackgroundColor = ConsoleColor.Black;
-
-                for (int i = 0; i < gAlphabet.Length; i++) //Check for duplicate letters in the alphabet
-                {
-                    if (gAlphabet.IndexOf(gAlphabet[i]) != i && AlphabetDuplicates.IndexOf(gAlphabet[i]) == -1) AlphabetDuplicates += gAlphabet[i];
-                }
-                if (AlphabetDuplicates != "") Write("\t\t[!]  - Повторяющиеся буквы\n");
-
-
-                Write("\t\t[i]  - Номера букв: "); //Write extra info
-                for (int i = 0; i < gDecoded.Length; i++) //Search for missing letters in tha alphabet
-                {
-                    Write(gAlphabet.IndexOf(gDecoded[i]) + " ");
-                    if (gAlphabet.IndexOf(gDecoded[i]) == -1 && AlphabetErrors.IndexOf(gDecoded[i]) == -1) AlphabetErrors += gDecoded[i];
-                }
-                if (AlphabetErrors == " ")
-                {
-                    if (AlphabetDuplicates == "")
-                    {
-                        gAlphabet += " ";
-                        Write("\n\t\t       Добавлен пробел\n\t\t       Новый алфавит: ");
-                        BackgroundColor = ConsoleColor.Magenta;
-                        Write(gAlphabet);
-                        BackgroundColor = ConsoleColor.Black;
-                        Write(" ");
-                    }
-                    AlphabetErrors = "";
-                }
-                else if (AlphabetErrors != "") //Write error message
-                {
-                    AlphabetErrors = AlphabetErrors.Replace(" ", "");
-                    Write("\n\t\t[!]  - Нет необходимых букв: ");
-                    for (int i = 0; i < AlphabetErrors.Length - 1; i++) Write(AlphabetErrors[i] + ", ");
-                    Write(AlphabetErrors[AlphabetErrors.Length - 1]);
-                }
-            }//Try again if errors ocured
-            //--------------------------------------------------------------------------------------//
-
-
-            //Get the open key
-            while (!SuccessfulParse)
-            {
-                Write("\n\n\n\t\t[->] - Сдвиг от 0 до " + gAlphabet.Length + ": ");
-                UserInput = ReadLine().Replace(" ", "");
-                if (int.TryParse(UserInput, out gShift)) //Checking for errors
-                {
-                    gShift = int.Parse(UserInput);
-                    if (gShift >= 0 && gShift <= gAlphabet.Length) SuccessfulParse = true;
-                    else Write("\t\t[!]  - Вне диапозона. Повторите ввод");
-                }
-                else Write("\t\t[!]  - Повторите ввод");
-            } //Try again if errors ocured
-            //--------------------------------------------------------------------------------------//
-        }
-
-        static public void SimpleDeInfo() //Getting decoding info
-        {
-            string UserInput, AlphabetErrors = "☺", AlphabetDuplicates = "☺";
-            bool SuccessfulParse = false;
-            gDecoded = "";
-
-            //--------------------------------------------------------------------------------------//
-            Write("\n\n\n\t\t\t\t--->  Decoding  <---\n\n");
-            Write("\n\t\t[->] - Требуется декодировать: ");
-            BackgroundColor = ConsoleColor.Blue;
-            gEncoded = ReadLine(); //Got the message
-            BackgroundColor = ConsoleColor.Black;
-
-            while (AlphabetDuplicates != "" || AlphabetErrors != "")
-            {
-                AlphabetDuplicates = "";
-                AlphabetErrors = "";
-                Write("\n\n\n\t\t[->] - Алфавит: ");
-                BackgroundColor = ConsoleColor.Magenta;
-                gAlphabet = ReadLine(); //Got the alphabet
-                BackgroundColor = ConsoleColor.Black;
-
-                for (int i = 0; i < gAlphabet.Length; i++) //Check for duplicate letters in the alphabet
-                {
-                    if (gAlphabet.IndexOf(gAlphabet[i]) != i && AlphabetDuplicates.IndexOf(gAlphabet[i]) == -1) AlphabetDuplicates += gAlphabet[i];
-                }
-                if (AlphabetDuplicates != "") Write("\t\t[!]  - Повторяющиеся буквы\n");
-
-
-                Write("\t\t[i]  - Номера букв: "); //Write extra info
-                for (int i = 0; i < gEncoded.Length; i++) //Search for missing letters in tha alphabet
-                {
-                    Write(gAlphabet.IndexOf(gEncoded[i]) + " ");
-                    if (gAlphabet.IndexOf(gEncoded[i]) == -1 && AlphabetErrors.IndexOf(gEncoded[i]) == -1) AlphabetErrors += gEncoded[i];
-                }
-                if (AlphabetErrors == " ")
-                {
-                    if (AlphabetDuplicates == "")
-                    {
-                        gAlphabet += " ";
-                        Write("\n\t\t       Добавлен пробел\n\t\t       Новый алфавит: ");
-                        BackgroundColor = ConsoleColor.Magenta;
-                        Write(gAlphabet);
-                        BackgroundColor = ConsoleColor.Black;
-                        Write(" ");
-                    }
-                    AlphabetErrors = "";
-                }
-                else if (AlphabetErrors != "") //Write error message
-                {
-                    AlphabetErrors = AlphabetErrors.Replace(" ", "");
-                    Write("\n\t\t[!]  - Нет необходимых букв: ");
-                    for (int i = 0; i < AlphabetErrors.Length - 1; i++) Write(AlphabetErrors[i] + ", ");
-                    Write(AlphabetErrors[AlphabetErrors.Length - 1]);
-                }
-            }//Try again if errors ocured
-            //--------------------------------------------------------------------------------------//
-
-            //Get the open key
-            while (!SuccessfulParse)
-            {
-                Write("\n\n\n\t\t[->] - Сдвиг от 0 до " + gAlphabet.Length + ": ");
-                UserInput = ReadLine().Replace(" ", "");
-                if (int.TryParse(UserInput, out gShift)) //Checking for errors
-                {
-                    gShift = int.Parse(UserInput);
-                    if (gShift >= 0 && gShift <= gAlphabet.Length) SuccessfulParse = true;
-                    else Write("\t\t[!]  - Вне диапозона. Повторите ввод");
-                }
-                else Write("\t\t[!]  - Повторите ввод");
-            } //Try again if errors ocured
-            //--------------------------------------------------------------------------------------//
-        }
-
-        static public void Encode()
+        //-------------------------------------------------------------------------------//
+        static public void Encode(byte Version, bool AdvInfo)
         {
             var Encode = new Dictionary<byte, Action>()  {
-            { 1, () => gEncoded = En_J10(gDecoded, gAlphabet, gShift) },
-            { 2, () => gEncoded = En_J13(gDecoded, gAlphabet, gShift) },
-            { 3, () => gEncoded = En_J14(gDecoded, gAlphabet, gShift) }   };
+            { 1, () => gEncoded = En_RE10(gDecoded, gAlphabet, gShift) },
+            { 3, () => gEncoded = En_RE13(gDecoded, gAlphabet, gShift) },
+            { 4, () => gEncoded = En_RE14(gDecoded, gAlphabet, gShift) }   };
 
             var EnInfo = new Dictionary<byte, Action>()  {
-            { 1, () => En_J10_Details(gEncoded, gDecoded, gAlphabet, gShift) },
-            { 2, () => En_J13_Details(gEncoded, gDecoded, gAlphabet, gShift) },
-            { 3, () => En_J14_Details(gEncoded, gDecoded, gAlphabet, gShift) }   };
+            { 1, () => En_RE10_Details(gEncoded, gDecoded, gAlphabet, gShift) },
+            { 3, () => En_RE13_Details(gEncoded, gDecoded, gAlphabet, gShift) },
+            { 4, () => En_RE14_Details(gEncoded, gDecoded, gAlphabet, gShift) }   };
 
-            Encode[gVersion]();
-            if(gAdvInfo) EnInfo[gVersion]();
+            Encode[Version]();
+            if(AdvInfo) EnInfo[Version]();
             ShowResult(gEncoded, "За");
         }
-
-        static public void Decode()
+        static public void Decode(byte Version, bool AdvInfo)
         {
             var Decode = new Dictionary<byte, Action>()  {
-            { 1, () => gDecoded = De_J10(gEncoded, gAlphabet, gShift) },
-            { 2, () => gDecoded = De_J13(gEncoded, gAlphabet, gShift) },
-            { 3, () => gDecoded = De_J14(gEncoded, gAlphabet, gShift) }   };
+            { 1, () => gDecoded = De_RE10(gEncoded, gAlphabet, gShift) },
+            { 3, () => gDecoded = De_RE13(gEncoded, gAlphabet, gShift) },
+            { 4, () => gDecoded = De_RE14(gEncoded, gAlphabet, gShift) }   };
 
             var DeInfo = new Dictionary<byte, Action>()  {
-            { 1, () => De_J10_Details(gEncoded, gDecoded, gAlphabet, gShift) },
-            { 2, () => De_J13_Details(gEncoded, gDecoded, gAlphabet, gShift) },
-            { 3, () => De_J14_Details(gEncoded, gDecoded, gAlphabet, gShift) }   };
+            { 1, () => De_RE10_Details(gEncoded, gDecoded, gAlphabet, gShift) },
+            { 3, () => De_RE13_Details(gEncoded, gDecoded, gAlphabet, gShift) },
+            { 4, () => De_RE14_Details(gEncoded, gDecoded, gAlphabet, gShift) }   };
 
-            Decode[gVersion]();
-            if(gAdvInfo) DeInfo[gVersion]();
+            Decode[Version]();
+            if(AdvInfo) DeInfo[Version]();
             ShowResult(gDecoded, "Де");
         }
 
@@ -445,9 +313,210 @@ namespace CipherTest
             BackgroundColor = ConsoleColor.DarkGreen;
             Write(Result); //Write the result
             BackgroundColor = ConsoleColor.Black;
+            Write("\n");
         }
 
-        static public void En_J10_Details(string Encoded, string Decoded, string Alphabet, int Shift)
+        //-------------------------------------------------------------------------------//
+        static public void GetInfo(byte _Type)
+        {
+            switch (gVersion)
+            {
+                case 1:
+                case 3:
+                case 4:
+                    GetMessage(gSimplified, _Type);
+                    GetAlphabet(gSimplified, _Type);
+                    GetShift(gSimplified);
+                    break;
+                case 5:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        static public void GetMessage(bool Simplified, byte _Type) 
+        {
+            string UserInput;
+            bool ConfirmMessage = false;
+
+            Write("\n\n\n");
+            if (!Simplified)
+            {
+                Write("\t\t\t--->  ");
+                if (_Type == 0) Write("За");
+                else Write("Де");
+                Write("шифровка сообщений с помощью РЕ ");
+                switch (gVersion)
+                {
+                    case 1:
+                        Write("1.0");
+                        break;
+                    case 3:
+                        Write("1.3");
+                        break;
+                    case 4:
+                        Write("1.4");
+                        break;
+                    case 5:
+                        Write("1.5");
+                        break;
+                }
+                Write("  <---\n\n");
+            }
+
+            while (!ConfirmMessage && !Simplified || _Type < 2) 
+            { 
+                if (Simplified) Write("\n\t\t[->] - Т");
+                else Write("\n\t\t[->] - Введите сообщение которое т");
+                if (_Type == 0) Write("ребуется закодировать: ");
+                else Write("ребуется декодировать: ");
+                BackgroundColor = ConsoleColor.Blue;
+
+                //0 = encoding   1 = decoding
+                if (_Type == 0) gDecoded = ReadLine(); //Got the message
+                else gEncoded = ReadLine();
+                
+                BackgroundColor = ConsoleColor.Black;
+                if (!Simplified)
+                {
+                    Write("\t\t[?]  - Сообщение верно? (Да/Нет | Yes/No): ");
+                    UserInput = ReadLine().Trim().ToLower();
+                    ConfirmMessage = (UserInput == "да" || UserInput == "yes");
+                    if (ConfirmMessage) _Type += 2;
+                }
+                else _Type += 2;
+            }
+            Write("\n");
+        }
+        static public void GetAlphabet(bool Simplified, byte _Type)
+        {   //     Coding = 0 -> Encoding    Coding = 1 -> Decoding
+            string Missing = "☺", Duplicates = "☺";
+            string Message;
+            bool Confirm = false;
+
+            while (Missing != "" || Duplicates != "" || !Confirm && !Simplified)
+            {
+                Message = _Type == 0 ? gDecoded : gEncoded;
+                Duplicates = "";
+                Missing = "";
+
+                if (Simplified) Write("\n\t\t[->] - Алфавит: ");
+                else
+                {
+                    Write("\n\t\t[->] - Введите алфавит с помощью которого будет ");
+                    if (_Type == 0) Write("за");
+                    else Write("де");
+                    Write("кодированно сообщение: ");
+                }
+                BackgroundColor = ConsoleColor.Magenta;
+                gAlphabet = ReadLine(); //Got the alphabet
+                BackgroundColor = ConsoleColor.Black;
+
+                for (int i = 0; i < gAlphabet.Length; i++) //Check for duplicate letters in the alphabet
+                {
+                    if (gAlphabet.IndexOf(gAlphabet[i]) != i 
+                        && Duplicates.IndexOf(gAlphabet[i]) == -1) Duplicates += gAlphabet[i];
+                }
+                if (Duplicates != "")
+                {
+                    if(Simplified) Write("\t\t[!]  - Повторяющиеся буквы: ");
+                    else Write("\t\t[!]  - Алфавит содержит повторяющиеся буквы: ");
+                    for (int i = 0; i < Duplicates.Length - 1; i++) Write(Duplicates[i] + ", ");
+                    Write(Duplicates[Duplicates.Length - 1] + "\n");
+                }
+
+                if (Simplified)
+                {
+                    for (int i = 0; i < Message.Length; i++) //Search for missing letters
+                    {
+                        if (gAlphabet.IndexOf(Message[i]) == -1
+                            && Missing.IndexOf(Message[i]) == -1) Missing += Message[i];
+                    }
+                }
+                else
+                {
+                    Write("\t\t[i]  - Номера букв сообщения в алфавите: "); //Write extra info
+                    for (int i = 0; i < Message.Length; i++) //Search for missing letters
+                    {
+                        Write(gAlphabet.IndexOf(Message[i]) + " ");
+                        if (gAlphabet.IndexOf(Message[i]) == -1
+                            && Missing.IndexOf(Message[i]) == -1) Missing += Message[i];
+                    }
+                    Write("\n");
+                }
+                if (Missing == " ")
+                {
+                    if (Duplicates == "")
+                    {
+                        gAlphabet += " ";
+
+                        if (Simplified) Write("\t\t       Добавлен пробел");
+                        else Write("\t\t       Алфавит будет изменён, для содержания пробела");
+                        Write("\n\t\t       Новый алфавит: ");
+
+                        BackgroundColor = ConsoleColor.Magenta;
+                        Write(gAlphabet);
+                        BackgroundColor = ConsoleColor.Black;
+                        Write("\n");
+                    }
+                    Missing = "";  
+                }
+                else if (Missing != "") //Write error message
+                {
+                    Missing = Missing.Replace(" ", "");
+                    if(Simplified) Write("\t\t[!]  - Нет необходимых букв: ");
+                    else Write("\t\t[!]  - В алфавите нет необходимых букв из сообщения: ");
+                    for (int i = 0; i < Missing.Length - 1; i++) Write(Missing[i] + ", ");
+                    Write(Missing[Missing.Length - 1] + "\n");
+                }
+                if(!Simplified && Missing == "" && Duplicates == "")
+                {
+                    Write("\t\t[?]  - Алфавит введён верно? (Да/Нет | Yes/No): ");
+                    Message = ReadLine().Trim().ToLower();
+                    Confirm = (Message == "да" || Message == "yes");
+                }
+            }//Try again if errors ocured
+            Write("\n");
+        }
+        static public void GetShift(bool Simplified)
+        {
+            bool Confirm = false, SuccessfulParse = false;
+            string UserInput;
+
+            while (!SuccessfulParse || !Confirm && !Simplified)
+            {
+                SuccessfulParse = false;
+                if (Simplified) Write("\n\t\t[->] - Сдвиг от 0 до " + gAlphabet.Length + ": ");
+                else Write("\n\t\t[->] - Введите сдвиг для алфавита (число от 0 до " + gAlphabet.Length + "): ");
+                UserInput = ReadLine().Replace(" ", "");
+                if (int.TryParse(UserInput, out gShift)) //Checking for errors
+                {
+                    gShift = int.Parse(UserInput);
+                    if (gShift >= 0 && gShift <= gAlphabet.Length) SuccessfulParse = true;
+                    else
+                    {
+                        if (Simplified) Write("\t\t[!]  - Вне диапозона\n");
+                        else Write("\t\t[!]  - Введённой число не попадает в допустимый диапозон. Повторите ввод\n");
+                    }
+                }
+                else
+                {
+                    if (Simplified) Write("[!]  - Некоректный ввод\n");
+                    else Write("\t\t[!]  - Некоректный ввод, попробуйте ещё раз\n");
+                }
+                if (SuccessfulParse && !Simplified)
+                {
+                    Write("\t\t[?]  - Сдвиг введён верно? (Да/Нет | Yes/No): ");
+                    UserInput = ReadLine().Trim().ToLower();
+                    Confirm = (UserInput == "да" || UserInput == "yes");
+                }
+            } //Try again if errors ocured
+            Write("\n");
+        }
+
+        //-------------------------------------------------------------------------------//
+        static public void En_RE10_Details(string Encoded, string Decoded, string Alphabet, int Shift)
         {
             Write("\n\t\t[i]  - "); //Write info on the first encoded character
             Write((Alphabet.IndexOf(Decoded[0]) + 1) + "+" + Shift + "=" + (Alphabet.IndexOf(Encoded[0]) + 1) + "/" + Encoded[0] + "  ");
@@ -460,8 +529,7 @@ namespace CipherTest
             }
             Write("(mod " + Alphabet.Length + ")");
         }
-
-        static public void De_J10_Details(string Encoded, string Decoded, string Alphabet, int Shift)
+        static public void De_RE10_Details(string Encoded, string Decoded, string Alphabet, int Shift)
         {
             Write("\n\t\t[i]  - "); //Write info about the first decoded character
             Write(Alphabet.IndexOf(Encoded[0]) + "-" + Shift + "=" + (Alphabet.IndexOf(Decoded[0]) + 1) + "/");
@@ -476,8 +544,8 @@ namespace CipherTest
             }
             Write("(mod " + Alphabet.Length + ")");
         }
-        
-        static public void En_J13_Details(string Encoded, string Decoded, string Alphabet, int Shift)
+
+        static public void En_RE13_Details(string Encoded, string Decoded, string Alphabet, int Shift)
         {
             Write("\n\t\t[i]  - "); //Write info on the first encoded character
             Write(Alphabet.IndexOf(Decoded[0]) + "+" + Shift + "=" + Alphabet.IndexOf(Encoded[0]) + "/" + Encoded[0] + "  ");
@@ -491,8 +559,7 @@ namespace CipherTest
             }
             Write("(mod " + Alphabet.Length + ")");
         }
-
-        static public void De_J13_Details(string Encoded, string Decoded, string Alphabet, int Shift)
+        static public void De_RE13_Details(string Encoded, string Decoded, string Alphabet, int Shift)
         {
             Write("\n\t\t[i]  - "); //Write info about the first decoded character
             Write(Alphabet.IndexOf(Encoded[0]) + "-" + Shift + "=" + Alphabet.IndexOf(Decoded[0]) + "/");
@@ -508,7 +575,7 @@ namespace CipherTest
             Write("(mod " + Alphabet.Length + ")");
         }
 
-        static public void En_J14_Details(string Encoded, string Decoded, string Alphabet, int Shift)
+        static public void En_RE14_Details(string Encoded, string Decoded, string Alphabet, int Shift)
         {
             Write("\n\t\t[i]  - "); //Write info about the first decoded character
             Write((Alphabet.IndexOf(Decoded[0]) - Shift) + "+" + Shift + "=" + Alphabet.IndexOf(Decoded[0]) + "/");
@@ -523,14 +590,13 @@ namespace CipherTest
             }
             Write("(mod " + Alphabet.Length + ")");
         }
-
-        static public void De_J14_Details(string Encoded, string Decoded, string Alphabet, int Shift)
+        static public void De_RE14_Details(string Encoded, string Decoded, string Alphabet, int Shift)
         {
             Write("\n\t\t[i]  - "); //Write info on the first encoded character
             Write(Alphabet.IndexOf(Encoded[0]) + "-" + Shift + "=" + Alphabet.IndexOf(Decoded[0]) + "/");
             if (Decoded[0] != ' ') Write(Decoded[0] + "  ");
             else Write("Space  ");
-            
+
             Write(Alphabet.IndexOf(Encoded[1]) + "-" + Alphabet.IndexOf(Encoded[0]) + "=" + Alphabet.IndexOf(Decoded[1]) + "/");
             if (Decoded[1] != ' ') Write(Decoded[1] + "  ");
             else Write("Space  "); //Write info on the second encoded character of the message
@@ -543,6 +609,5 @@ namespace CipherTest
             }
             Write("(mod " + Alphabet.Length + ")");
         }
-
     }
 }
