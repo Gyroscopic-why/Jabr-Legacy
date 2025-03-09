@@ -1,17 +1,19 @@
 # Jabr
-This is an Indie-software tool - Encoder/Decoder.
+This is an Indie-software tool - encryptor/decryptor.
 
-UI is currently only on russian, however the program **DOES support english** inputs.
+UI is currently only on russian, however the program **DOES support english** (also almost all UTF-8 characters in the latest version) inputs.
 
-This is a **no longer a small program** that I have been working on, it _quickly_ turned into one one my favourite projects that I have been developing alone **since August 2024.**
+This is **no longer a small program** that I have been working on, it _quickly_ turned into one one my favourite projects that I have been developing alone **since August 2024.**
 
-It is capable of **encrypting and decrypting messages** with any ASCII caracters except for the _"ENTER"_ key.
-The encryption and decryption processes happen via **my own algorithm** called **RE for short.**
+It is capable of **encrypting and decrypting messages** with almost any **UTF-8** caracters.
 
-The algorithm uses an Shift-code, and an alphabet which must follow these rules:
- -     Must include all the ASCII characters from the message including dots, spaces etc.
+_Why is this program important?_
+- Because in Jabr, the encryption and decryption processes happen via **my own algorithm** (called RE for short) which you won't find anywhere as of now.
+
+Currently the algorithms use an Shift-code, and an alphabet which must follow these rules:
+ -     Must include all the UTF-8 characters from the message including dots, spaces etc.
  -     Every symbol must only be used once in the alphabet.
- -     It may also contain other ascii characters, if the user wants so (also used only once).
+ -     It may also contain other UTF-8 characters, if the user wants so (also used only once).
  -     The open key must be a natural number between 0 and the chosen alphabet length.
 
 The program was made for fun and educational purposes, and is not meant to hurt anyone.
@@ -27,31 +29,42 @@ Just **please add a dedication/credit/github link to my original work :D**
 
 -======================= First prototypes =====================
 
-v1.0 - bugged
+v1.0 - Lost in time
 
-v1.1 - semibugged
+v1.1 - Lost in time
 
 -=======================================================
 
 
 -====================== Gen 2 (26.10.2024) ====================
 
-v1.2 alpha - unfinished UI, but works fine
+v1.2 New features:
+    - Full UI rework
+    - Optimisation
+    - Minor bug fixes
 
-v1.2 beta - New UI, has dev info, works fine
+v1.2 alpha - unfinished
 
-v1.21 - Improved UI, has dev info, works fine, minor bug fixes
+v1.2 beta - New UI, has dev info
+
+v1.2.1 - Improved UI, has dev info, minor bug fixes
 
 -=======================================================
 
 
 -===================== Gen 3 (26.10.2024) =====================
 
-v1.3 beta - works fine, has dev info
+v1.3 New features:
+    - Split the encryptiom and decryption part into reusable functions :D
+    - Code refactoring
+    - Improved UI
+    - Minor bug fixes
 
-v1.3C - more clean code version, has dev info, works the same as v1.3 beta
+v1.3 beta - Unfinished, has dev info
 
-v1.3_Opti - optimised version, a bit of removed dev info, works faster than other Gen_1.3 
+v1.3_C - finished & clean version, has dev info
+
+v1.3_O - optimised version, without dev info, works faster than other Gen 3 variants
 
 -=======================================================
 
@@ -59,13 +72,13 @@ v1.3_Opti - optimised version, a bit of removed dev info, works faster than othe
 ======================= Gen 4 ============================
 
 v1.4 New features: (22.11.2024)
-    - New cipher version with improved security (RE 1.4)
-    - Ability to change ciphers (RE 1.0,  RE 1.3,  and  RE 1.4)  
-         //although not recomended to use lower than 1.4
-    - Switchable settings
+    - New and improved encryption/decryption algorith version with improved security (RE4)
+    - Ability to change ciphers (RE1,  RE2,  RE3,  and  RE4)  
+         //although not recomended to use lower than RE4
+    - Added switchable settings
     - Improved UI
-    - Fixed advanced info about the encryption/decryption process
-    - Improved performance
+    - Fixed advanced info display bug about the encryption/decryption process
+    - Massive optimisation
     - Fixed spelling mistakes
     
 For developers/enthusiasts:
@@ -76,7 +89,7 @@ For developers/enthusiasts:
 
 
 v1.4.1 QOL patch - New features: (20.1.2025)
-    - New settings feature: switchable input style for better user experience
+    - New settings option: switchable input style for better user experience
     - Changed settings UI for future scaleability
     - Improved info output
     - Improved performance
@@ -100,30 +113,31 @@ For developers/enthusiasts:
 
 
 Expected features:
--     More intuitive UI
--     Randomly generating codes
--     Fast encoding/decoding options
-+     Settings menu
+-     Randomly generating codes & cipher parameters
+-     English UI 
++     Fast base encryption/decryption options (simplified version of the UI)
++     (+) Settings menu
 -     Advanced settings menu
-+     Other ciphers to chose from (?)
--     First bruteforcing prototypes (?)
+-     Hashing for encryption/decryption option
+-     Fast input system
+-     File encryption/decryption
+-     Custom cipher options
+-     Multi-layer encryption/decryption
+-     Persistent settings
+-     Better installation guide (after persistent settings)
++     (+) Other ciphers to chose from in settings (?)
 
-**"+":** Currently already implemented in _Gen 4_
+**"+": Currently already implemented in the latest version**
 
 ========================================================
 
 
 
 
-=-=-=-=-=-=-=-=-=-=-=-=-=-=> Future plans: 
+=-=-=-=-=-=-=-=-=-=-=-=-=-=> Not defined future plans: 
 
--     Clean the UI
--     Add the option of randomly generating cipher parameters
--     Add multiple encoding/decoding at the same time
--     Integrate other ciphers in the program
+-     Add multiple encryption/decryption at the same time
+-     Integrate other ciphers in the program (not RE algorithms)
 -     Add optional parameter bruteforcing using a bit of known information
--     Add additional security to the main cipher
--     Add graphical interface (?)
--     Enable advanced settings menu
--     Make settings persistent (until user changes them)
--     Enable creating of encoded/decoded .txt files
+-     Add graphical interface 
+-     Enable creating of encryption/decryption .txt files
