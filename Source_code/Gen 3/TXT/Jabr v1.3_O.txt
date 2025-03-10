@@ -16,7 +16,7 @@ namespace Jabr
 
         static void Main(string[] args)
         {
-            Title = "Jabr - encoder/decoder - v1.3_Opti"; //Optimised
+            Title = "Jabr - encoder/decoder - v1.3_O";  // Optimised version without dev info
 
             Write("\n\n\n\t\t\t\tДобро пожаловать в Jabr!");
             short OurTask = GetUserTask();
