@@ -80,7 +80,7 @@ Just **please add a dedication/credit/github link to my original work :D**
 
 - **v1.4 New features: (22.11.2024)**
     - **New and improved encryption/decryption algorith version with improved security (RE4)**
-    - **Ability to change ciphers (RE1,  RE2,  RE3,  and  RE4)**  //although not recomended to use lower than RE4
+    - **Ability to change ciphers (RE1,  RE2,  RE3,  and  RE4)** (RE2 is curently only accessible in v1.4.2 beta)
     - **Added switchable settings**
     - **Fixed advanced info display bug about the encryption/decryption process**
     - Improved UI
