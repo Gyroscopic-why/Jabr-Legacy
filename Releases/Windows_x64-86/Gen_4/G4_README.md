@@ -8,7 +8,7 @@ The release includes the main program, and a test chamber for developers:
 
 
 
-## **v1.4.2 beta Small update:**
+## **v1.4.2 beta Medium update:**
 **New features:**
 - **New settings feature: enabling using of shortcuts for fast encrypting/decrypting**
 - **Added shortcut parsing for user inputs in the task selection menu**
