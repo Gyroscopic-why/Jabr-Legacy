@@ -1,9 +1,30 @@
-# Jabr
-This is an Indie-software tool - **encryptor/decryptor.**
+# Jabr-Legacy (Old repository of the tool Jabr, final support: v1.4.2 beta)
 
-UI is currently only on russian, however the program **DOES support english** (also almost all UTF-8 characters in the latest version) inputs.
+This is an old repository of my cryptor tool **Jabr**, holds the legacy commits and changes
 
-This is **no longer a small program** that I have been working on, it _quickly_ turned into one one my favourite projects that I have been developing alone **since August 2024.**
+You can find the new repository **here** at https://github.com/gyroscopic-why/Jabr
+
+`
+
+`
+
+1__________#######_____________####_________________#--------------#####
+
+1_________________##___________##---##________________#--------------######
+
+1_________##-----##___________#######_____________--#####--------###
+
+1____________####_____________##----##______________-#####--------#-----#
+
+`
+
+`
+
+This is an Indie-software tool - **encryptor/decryptor**
+
+UI is currently only on russian, supporting almost all UTF-8 characters in the latest version (inputs, and outputs).
+
+This is **no longer a small program** that I have been working on, it _quickly_ turned into one one my favourite projects that I have been developing **since August 2024.**
 
 It is capable of **encrypting and decrypting messages** with almost any **UTF-8** caracters.
 
@@ -17,14 +38,14 @@ just **please add a dedication/credit/github link to my original work :D**
 
 
 # _Why is this program important?_
-- Because in Jabr, the encryption and decryption processes happen via **my own algorithm** (called RE for short)
-- Which almost has millitary grade security
+- Because in Jabr, the encryption and decryption processes happen via **a custom algorithm** (called RE for short later)
+- Which has millitary grade security
 - The cipher parameters, and encrypted messages are super compact
-- And you won't find them anywhere else as of now.
+- Is unique and unknown, you wont find it anywhere as of now
 
 
   
-# **Rules:**
+# **Parameter details / rules:**
 
 ### **Currently the algorithms uses** an Shift-code, and an alphabet
 
@@ -35,12 +56,13 @@ just **please add a dedication/credit/github link to my original work :D**
  -     Must be at least 2 symbols long or the message wont be encrypted
  **The Shift-key must follow these rules:** 
  -     Must be a natural number
- -     Larger than 0
- -     Samller than the alphabet length
+ -     Be equal or greater 0
+ -     Be smaller than the alphabet length
 
 
 
 # **How the ciphers work**
+
 I won't really go into precise details right now but basically **here is how RE3 and lower algorithms**:
 -      You go through the message and replace the message character by the alphabets[Encryption Index]
 -      For the FIRST letter from the original message:
@@ -93,7 +115,7 @@ I won't really go into precise details right now but basically **here is how RE3
 ### **Example 2:**
 
 **Input:**
--     -3helloworld::qwertyuiop:2
+-     -3helloworld::qwertyuiop::2
 **Output:**
 -     Error while reading shortcut
       // The alphabet doesn't contain all the characters from the message
@@ -231,7 +253,7 @@ I won't really go into precise details right now but basically **here is how RE3
 
 
 ## **Gen 5**
-_*Work in progress,_ est. finish date - end of april 2025
+_*Work in progress,_ est. finish date - end of june 2025
 
 
 
